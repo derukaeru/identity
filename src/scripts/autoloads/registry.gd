@@ -1,5 +1,5 @@
 extends Node
 
 var UID: Dictionary = {
-	"loading_screen": "uid://tetiuyj7kfoe"
+	"loading_screen": "uid://dur6kgxaelwly"
 }
