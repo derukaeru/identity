@@ -1,3 +1,12 @@
 [gd_scene format=3 uid="uid://bapi2aby5ndo"]
 
+[ext_resource type="Script" uid="uid://c1d8lukv7ahaa" path="res://src/scenes/main/main.gd" id="1_hsw67"]
+[ext_resource type="PackedScene" uid="uid://b12gw2hen6oqb" path="res://src/scenes/maps/map.tscn" id="2_45uaa"]
+[ext_resource type="PackedScene" uid="uid://c5571amkocx4p" path="res://src/scenes/entities/player.tscn" id="3_vw57g"]
+
 [node name="main" type="Node3D" unique_id=163032758]
+script = ExtResource("1_hsw67")
+
+[node name="map" parent="." unique_id=307662637 instance=ExtResource("2_45uaa")]
+
+[node name="player" parent="." unique_id=1778989208 instance=ExtResource("3_vw57g")]
