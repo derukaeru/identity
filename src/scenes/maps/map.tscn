@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://b12gw2hen6oqb"]
 
+[ext_resource type="Script" uid="uid://dvmo7nqn23o1t" path="res://src/scenes/maps/map.gd" id="1_vqcny"]
+[ext_resource type="Script" uid="uid://dne60fecxdfcj" path="res://src/scripts/components/interactable_component.gd" id="2_61erh"]
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_18i36"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -13,24 +16,81 @@ sky = SubResource("Sky_7ha7p")
 glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_t4a08"]
-size = Vector2(20, 20)
+size = Vector2(12, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2yfux"]
-size = Vector3(20, 0.1, 20)
+size = Vector3(12, 0.1, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2yfux"]
+size = Vector2(12, 5)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_18i36"]
+size = Vector2(12, 5)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7ha7p"]
+size = Vector2(10, 5)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vqcny"]
+size = Vector2(10, 5)
+orientation = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t4a08"]
+size = Vector3(5.425598, 2.940216, 1)
 
 [node name="map" type="Node3D" unique_id=307662637]
+script = ExtResource("1_vqcny")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1367736121]
 environment = SubResource("Environment_vqcny")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1934228718]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
+[node name="floor" type="MeshInstance3D" parent="." unique_id=1197963291]
+mesh = SubResource("PlaneMesh_t4a08")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1197963291]
+[node name="ceiling" type="MeshInstance3D" parent="." unique_id=226273835]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 4.8876896, 0)
+cast_shadow = 2
 mesh = SubResource("PlaneMesh_t4a08")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=845952260]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1138911454]
 shape = SubResource("BoxShape3D_2yfux")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1680247907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_2yfux")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=726684155]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2.5, 5)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_18i36")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=170020062]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 6, 2.5, 0)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_7ha7p")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1028667820]
+transform = Transform3D(-2.1855693e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855693e-07, -6, 2.5, 0)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_vqcny")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=794631903]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.876915, 0)
+spot_range = 7.8855705
+spot_angle = 67.18396
+
+[node name="window" type="Area3D" parent="." unique_id=1281229796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3201742, 2.7473812, -5.0100994)
+script = ExtResource("2_61erh")
+metadata/_custom_type_script = "uid://dne60fecxdfcj"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="window" unique_id=2011455343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23953247, -0.19752502, -0.38643694)
+shape = SubResource("BoxShape3D_t4a08")
+
+[connection signal="interacted" from="window" to="." method="_on_window_interacted"]

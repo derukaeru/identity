@@ -7,7 +7,7 @@ var default_speed: float = 3.4
 var speed: float = default_speed
 @export var gravity: float = 9.8
 
-var mouse_sensitivity: float = 0.003
+var mouse_sensitivity: float = 0.002
 var can_move: bool = true
 
 func _ready() -> void:
