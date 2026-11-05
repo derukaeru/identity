@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dfkh0snfvjkql" path="res://src/scenes/menu/ui.gd" id="1_wpnud"]
 [ext_resource type="PackedScene" uid="uid://7jemke30bxqq" path="res://src/scenes/menu/pause_screen.tscn" id="2_komq3"]
 [ext_resource type="Shader" uid="uid://d0rjqt1goxskn" path="res://src/assets/shaders/fear.gdshader" id="3_atyx7"]
+[ext_resource type="PackedScene" uid="uid://cgmo1g7kn3tcx" path="res://src/scenes/menu/window_screen.tscn" id="3_e0xvt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2yfux"]
 shader = ExtResource("3_atyx7")
@@ -36,10 +37,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 1.0
-offset_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.25
+offset_bottom = 4.25
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -59,6 +60,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "interact"
 label_settings = SubResource("LabelSettings_2yfux")
+
+[node name="window_screen" parent="." unique_id=1087874085 instance=ExtResource("3_e0xvt")]
+visible = false
 
 [node name="pause_screen" parent="." unique_id=2145161773 instance=ExtResource("2_komq3")]
 visible = false

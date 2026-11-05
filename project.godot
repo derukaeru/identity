@@ -25,7 +25,8 @@ Util="*uid://dr2t418jktv0w"
 
 [display]
 
-window/size/viewport_height=776
+window/size/viewport_width=1248
+window/size/viewport_height=808
 window/stretch/mode="viewport"
 
 [editor_plugins]

@@ -21,6 +21,12 @@ size = Vector2(12, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2yfux"]
 size = Vector3(12, 0.1, 10)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_la05k"]
+size = Vector3(12.4104, 5.414612, 1.2399597)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vqcny"]
+size = Vector3(0.38049316, 5.414612, 9.971235)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_2yfux"]
 size = Vector2(12, 5)
 orientation = 2
@@ -59,6 +65,26 @@ mesh = SubResource("PlaneMesh_t4a08")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1138911454]
 shape = SubResource("BoxShape3D_2yfux")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=496030789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15002441, 2.207306, -5.61441)
+shape = SubResource("BoxShape3D_la05k")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=737567314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15002441, 2.207306, 5.596283)
+shape = SubResource("BoxShape3D_la05k")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=871361956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.164978, 2.207306, 0.5468569)
+shape = SubResource("BoxShape3D_vqcny")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=2013700501]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1785564, 2.207306, -0.016031265)
+shape = SubResource("BoxShape3D_vqcny")
+debug_color = Color(0, 0, 0, 1)
+
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1680247907]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 cast_shadow = 2
@@ -81,7 +107,7 @@ mesh = SubResource("PlaneMesh_vqcny")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=794631903]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.876915, 0)
-spot_range = 7.8855705
+spot_range = 10.536811
 spot_angle = 67.18396
 
 [node name="window" type="Area3D" parent="." unique_id=1281229796]

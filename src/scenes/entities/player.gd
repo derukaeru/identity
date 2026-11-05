@@ -14,6 +14,9 @@ var current_interactable: InteractableComponent = null
 
 func _ready() -> void:
 	Util.mouse_captured()
+	
+	EventManager.stop_player_movement.connect(stop_movement)
+	EventManager.continue_player_movement.connect(continue_movement)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -67,5 +70,5 @@ func stop_movement() -> void:
 	can_move = false
 	velocity = Vector3.ZERO
 
-func set_movement() -> void:
+func continue_movement() -> void:
 	can_move = true
