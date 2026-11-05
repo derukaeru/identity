@@ -13,7 +13,9 @@ script = ExtResource("1_oidqf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8726625, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1298060264]
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -2)
+collide_with_areas = true
+collide_with_bodies = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=877058846]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

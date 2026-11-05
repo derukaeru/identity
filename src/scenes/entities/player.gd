@@ -10,10 +10,12 @@ var speed: float = default_speed
 var mouse_sensitivity: float = 0.002
 var can_move: bool = true
 
+var current_interactable: InteractableComponent = null
+
 func _ready() -> void:
 	Util.mouse_captured()
 
-func _physics_process(delta) -> void:
+func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
@@ -30,11 +32,36 @@ func _physics_process(delta) -> void:
 	
 	move_and_slide()
 
+func _process(_delta: float) -> void:
+	var new_interactable: InteractableComponent = null
+	
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider is InteractableComponent:
+			new_interactable = collider
+	
+	if new_interactable != current_interactable:
+		current_interactable = new_interactable
+		if current_interactable:
+			EventManager.show_tooltip.emit(current_interactable)
+		else:
+			EventManager.hide_tooltip.emit()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+			_interact()
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		camera.global_rotation.x -= event.relative.y * mouse_sensitivity
 		camera.global_rotation.x = clamp(camera.global_rotation.x, -1.3, 1)
 		camera.global_rotation.y -= event.relative.x * mouse_sensitivity
+
+func _interact() -> void:
+	var collider := raycast.get_collider()
+	if collider is InteractableComponent:
+		collider.interact()
 
 func stop_movement() -> void:
 	can_move = false
