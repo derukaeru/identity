@@ -33,4 +33,34 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 32
 text = "close"
 
+[node name="visitor_display" type="Control" parent="." unique_id=2060781081]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="visitor_picture" type="TextureRect" parent="visitor_display" unique_id=1812260582]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="tools" type="Control" parent="." unique_id=617590627]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -230.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="background" type="ColorRect" parent="tools" unique_id=346510966]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.28, 0.16898, 0.10919999, 1)
+
 [connection signal="pressed" from="close" to="." method="close"]

@@ -1,12 +1,6 @@
 [gd_scene format=3 uid="uid://dix67ojrdr6ht"]
 
 [ext_resource type="Script" uid="uid://cmw0sg2dd1o71" path="res://src/scenes/menu/title_screen.gd" id="1_4v2w5"]
-[ext_resource type="FontFile" uid="uid://lcay2652jc6e" path="res://src/assets/fonts/Helvetica.ttf" id="3_g66e4"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_37oxp"]
-font = ExtResource("3_g66e4")
-font_size = 100
-font_color = Color(0.45080003, 0.65412, 0.92, 1)
 
 [node name="title_screen" type="Control" unique_id=198211424]
 layout_mode = 3
@@ -24,13 +18,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.88, 0.8635733, 0.8096, 1)
-
-[node name="title" type="Label" parent="." unique_id=167698055]
-layout_mode = 0
-offset_left = 199.0
-offset_top = 249.0
-offset_right = 671.0
-offset_bottom = 396.0
-text = "switchyard"
-label_settings = SubResource("LabelSettings_37oxp")
+color = Color(0, 0, 0, 1)
