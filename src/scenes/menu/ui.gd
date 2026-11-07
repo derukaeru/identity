@@ -23,6 +23,7 @@ func _process(_delta: float) -> void:
 			Util.mouse_visible()
 
 func show_tooltip(interactable: InteractableComponent) -> void:
+	tooltip.text = interactable.tooltip_text
 	tooltip.show()
 
 func hide_tooltip() -> void:

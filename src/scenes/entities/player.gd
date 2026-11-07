@@ -12,6 +12,8 @@ var can_move: bool = true
 
 var current_interactable: InteractableComponent = null
 
+var item_held: Item = null
+
 func _ready() -> void:
 	Util.mouse_captured()
 	
@@ -63,8 +65,17 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _interact() -> void:
 	var collider := raycast.get_collider()
-	if collider is InteractableComponent:
+	if collider is Item:
+		if item_held:
+			item_held.drop()
+		
+		item_held = collider
+		item_held.hide()
+	elif collider is InteractableComponent:
 		collider.interact()
+	else:
+		if item_held:
+			item_held.use()
 
 func stop_movement() -> void:
 	can_move = false
