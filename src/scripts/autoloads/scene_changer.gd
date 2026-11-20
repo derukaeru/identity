@@ -10,6 +10,7 @@ signal progress_changed(progress)
 signal loading_finished
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	set_process(false)
 	
 func change_scene(scene_name: String) -> void:
@@ -40,3 +41,6 @@ func _process(_delta) -> void:
 			
 			get_tree().change_scene_to_packed(loaded_resource)
 			loading_finished.emit()
+			
+			if get_tree().paused:
+				get_tree().paused = true

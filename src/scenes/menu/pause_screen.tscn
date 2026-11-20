@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://birr0kgvvxe76" path="res://src/scenes/menu/pause_screen.gd" id="1_s4fn5"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_2yfux"]
+font_size = 64
+
 [node name="pause_screen" type="Control" unique_id=2145161773]
 layout_mode = 3
 anchors_preset = 15
@@ -27,10 +30,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -184.0
-offset_top = -70.0
-offset_right = 184.0
-offset_bottom = 70.0
+offset_left = -515.0
+offset_top = 84.0
+offset_right = -53.0
+offset_bottom = 278.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
@@ -38,17 +41,29 @@ size_flags_vertical = 3
 [node name="resume" type="Button" parent="VBoxContainer" unique_id=1698791073]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "resume"
 
 [node name="settings" type="Button" parent="VBoxContainer" unique_id=640017073]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "settings"
 
 [node name="exit" type="Button" parent="VBoxContainer" unique_id=1152742921]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "exit"
+
+[node name="paused" type="Label" parent="." unique_id=781683564]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 191.0
+offset_right = 422.0
+offset_bottom = 277.0
+text = "Paused"
+label_settings = SubResource("LabelSettings_2yfux")
 
 [connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]

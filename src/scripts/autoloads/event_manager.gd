@@ -8,3 +8,6 @@ signal close_inspection_window
 
 signal stop_player_movement
 signal continue_player_movement
+
+signal open_pause
+signal close_pause
