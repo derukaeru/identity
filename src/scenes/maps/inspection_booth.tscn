@@ -6,25 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://dfn1vautd7llp" path="res://src/assets/sprites/textures/stone 1.png" id="3_vwel7"]
 [ext_resource type="PackedScene" uid="uid://c3exg7k1p6mx4" path="res://src/scenes/objects/door.tscn" id="5_2jtgy"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_18i36"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_7ha7p"]
-sky_material = SubResource("ProceduralSkyMaterial_18i36")
-
-[sub_resource type="Environment" id="Environment_vqcny"]
-background_mode = 1
-background_color = Color(0.11858138, 0.11858138, 0.11858138, 1)
-sky = SubResource("Sky_7ha7p")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61erh"]
 albedo_texture = ExtResource("2_vqcny")
 uv1_scale = Vector3(2.08, 2.08, 2.08)
 texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_t4a08"]
-size = Vector2(11, 8.4)
+size = Vector2(10, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38br4"]
 albedo_texture = ExtResource("3_vwel7")
@@ -32,7 +20,7 @@ uv1_scale = Vector3(2.43, 2.43, 2.43)
 texture_filter = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2yfux"]
-size = Vector3(10.4539795, 0.1, 8.466309)
+size = Vector3(32, 0.1, 32)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_la05k"]
 size = Vector3(12.4104, 5.414612, 1.2399597)
@@ -120,21 +108,19 @@ size = Vector3(1.6742798, 0.4, 0.4)
 [node name="inspection_booth" type="Node3D" unique_id=307662637]
 script = ExtResource("1_vn5op")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1367736121]
-environment = SubResource("Environment_vqcny")
-
 [node name="floor" type="MeshInstance3D" parent="." unique_id=1668298020]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75704026, 0, -0.8213726)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.666613, 0, -2.599378)
 material_override = SubResource("StandardMaterial3D_61erh")
 mesh = SubResource("PlaneMesh_t4a08")
 
 [node name="ceiling" type="MeshInstance3D" parent="." unique_id=977225580]
-transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.6341686, 4.8876896, -0.8418708)
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -2.010315, 4.8876896, -1.8416808)
 material_override = SubResource("StandardMaterial3D_38br4")
 cast_shadow = 2
 mesh = SubResource("PlaneMesh_t4a08")
 
 [node name="collisions" type="StaticBody3D" parent="." unique_id=172140416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3761463, 0, -0.99981)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collisions" unique_id=1122514347]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77301025, 0, -0.7668457)
@@ -165,6 +151,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4506493, 0.39135742, -4.82
 shape = SubResource("BoxShape3D_ifoc3")
 
 [node name="walls" type="Node3D" parent="." unique_id=1322943635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3761463, 0, -0.99981)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="walls" unique_id=852706806]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1612856, 2.5, -5.1968966)
@@ -209,14 +196,16 @@ cast_shadow = 2
 mesh = SubResource("PlaneMesh_vqcny")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1936480614]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.9462442, 4.793444, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.3223906, 4.793444, -0.99981)
 spot_range = 12.97767
 spot_angle = 80.51251
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=687781895]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9785745, 4.9650903, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.354721, 4.9650903, -0.99981)
 mesh = SubResource("BoxMesh_2yfux")
 
 [node name="door" parent="." unique_id=500602545 instance=ExtResource("5_2jtgy")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.572986, 0, 2.1156085)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.9720416, 0, 1.1157985)
 move_to = "house"
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=919688446]

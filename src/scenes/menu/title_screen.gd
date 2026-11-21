@@ -1,11 +1,11 @@
 extends Control
 
+func _on_start_pressed() -> void:
+	GameManager.current_map = "house"
+	SceneChanger.change_scene("main")
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _on_settings_pressed() -> void:
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _on_exit_pressed() -> void:
 	pass

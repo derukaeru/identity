@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cmw0sg2dd1o71" path="res://src/scenes/menu/title_screen.gd" id="1_4v2w5"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fbi7p"]
+
 [node name="title_screen" type="Control" unique_id=198211424]
 layout_mode = 3
 anchors_preset = 15
@@ -21,3 +23,57 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="menu" type="VBoxContainer" parent="." unique_id=2140312266]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = -354.0
+offset_right = 466.0
+offset_bottom = -73.0
+grow_vertical = 0
+
+[node name="start" type="Button" parent="menu" unique_id=464729228]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_pressed_color = Color(0.745043, 0.15923262, 0.16093358, 1)
+theme_override_colors/font_hover_color = Color(0.97, 0.45396, 0.4268, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fbi7p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fbi7p")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fbi7p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fbi7p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fbi7p")
+text = "start"
+
+[node name="settings" type="Button" parent="menu" unique_id=1035207077]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_pressed_color = Color(0.745043, 0.15923262, 0.16093358, 1)
+theme_override_colors/font_hover_color = Color(0.97, 0.45396, 0.4268, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fbi7p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fbi7p")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fbi7p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fbi7p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fbi7p")
+text = "settings"
+
+[node name="exit" type="Button" parent="menu" unique_id=1809457335]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_pressed_color = Color(0.745043, 0.15923262, 0.16093358, 1)
+theme_override_colors/font_hover_color = Color(0.97, 0.45396, 0.4268, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fbi7p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fbi7p")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fbi7p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fbi7p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fbi7p")
+text = "exit"
+
+[connection signal="pressed" from="menu/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="menu/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="menu/exit" to="." method="_on_exit_pressed"]

@@ -2,16 +2,22 @@
 
 [ext_resource type="Script" uid="uid://bw4c30dr1jmw4" path="res://src/scenes/objects/door.gd" id="1_43r5e"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_43r5e"]
+size = Vector3(0.2, 3.4, 2)
+
 [sub_resource type="BoxMesh" id="BoxMesh_2yfux"]
 size = Vector3(0.2, 3.4, 2)
 
-[node name="door" type="Area3D" unique_id=500602545]
+[node name="door" type="Area3D" unique_id=1371080145]
 script = ExtResource("1_43r5e")
+metadata/_custom_type_script = "uid://dne60fecxdfcj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=226626331]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1915442262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6867776, 0)
+shape = SubResource("BoxShape3D_43r5e")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1312328247]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=325342122]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6881427, 0)
 mesh = SubResource("BoxMesh_2yfux")
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="interacted" from="." to="." method="_on_interacted"]

@@ -1,12 +1,24 @@
 [gd_scene format=3 uid="uid://bapi2aby5ndo"]
 
 [ext_resource type="Script" uid="uid://c1d8lukv7ahaa" path="res://src/scenes/main/main.gd" id="1_hsw67"]
-[ext_resource type="PackedScene" uid="uid://b12gw2hen6oqb" path="res://src/scenes/maps/inspection_booth.tscn" id="2_45uaa"]
 [ext_resource type="PackedScene" uid="uid://c5571amkocx4p" path="res://src/scenes/entities/player.tscn" id="3_vw57g"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4rfip"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_7ha7p"]
+sky_material = SubResource("ProceduralSkyMaterial_4rfip")
+
+[sub_resource type="Environment" id="Environment_45uaa"]
+background_mode = 1
+background_color = Color(0.15127617, 0.15127605, 0.15127605, 1)
+sky = SubResource("Sky_7ha7p")
 
 [node name="main" type="Node3D" unique_id=163032758]
 script = ExtResource("1_hsw67")
 
-[node name="inspection_booth" parent="." unique_id=307662637 instance=ExtResource("2_45uaa")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1171651515]
+environment = SubResource("Environment_45uaa")
 
 [node name="player" parent="." unique_id=1778989208 instance=ExtResource("3_vw57g")]

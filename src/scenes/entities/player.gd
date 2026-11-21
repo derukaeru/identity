@@ -73,6 +73,7 @@ func _interact() -> void:
 		item_held.hide()
 	elif collider is InteractableComponent:
 		collider.interact()
+		return
 	else:
 		if item_held:
 			item_held.use()

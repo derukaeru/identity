@@ -1,11 +1,89 @@
 [gd_scene format=3 uid="uid://b40uoa6c677ew"]
 
 [ext_resource type="Script" uid="uid://djke4sw3mmq25" path="res://src/scenes/maps/house.gd" id="1_ndl7b"]
+[ext_resource type="PackedScene" uid="uid://c3exg7k1p6mx4" path="res://src/scenes/objects/door.tscn" id="2_yaquv"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2yfux"]
+size = Vector2(16, 16)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ndl7b"]
+size = Vector2(16, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2yfux"]
+size = Vector3(16, 0.1, 16)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t4a08"]
+size = Vector2(16, 5)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yaquv"]
+size = Vector2(16, 5)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ljilp"]
+size = Vector2(16, 5)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ragff"]
+size = Vector2(16, 5)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4a08"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2yfux"]
+material = SubResource("StandardMaterial3D_t4a08")
+size = Vector3(0.4, 0.2, 1)
 
 [node name="house" type="Node3D" unique_id=985692575]
 script = ExtResource("1_ndl7b")
 
 [node name="floor" type="MeshInstance3D" parent="." unique_id=369873368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9135017, 0, 5.175932)
 mesh = SubResource("PlaneMesh_2yfux")
+
+[node name="ceiling" type="MeshInstance3D" parent="." unique_id=1205818358]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -6.9135017, 4.8981853, 5.175932)
+mesh = SubResource("PlaneMesh_ndl7b")
+
+[node name="collision" type="StaticBody3D" parent="." unique_id=289092094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9135017, 0, 5.175932)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collision" unique_id=417221724]
+shape = SubResource("BoxShape3D_2yfux")
+
+[node name="walls" type="Node3D" parent="." unique_id=866876741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9135017, 0, 5.175932)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="walls" unique_id=1723889756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4696646, -8)
+mesh = SubResource("PlaneMesh_t4a08")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="walls" unique_id=516622641]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 2.4696646, 8)
+mesh = SubResource("PlaneMesh_yaquv")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="walls" unique_id=1632010917]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8, 2.4696646, 0)
+mesh = SubResource("PlaneMesh_ljilp")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="walls" unique_id=317239289]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8, 2.4696646, 0)
+mesh = SubResource("PlaneMesh_ragff")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=708148112]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6.9135017, 4.8387256, 5.175932)
+spot_range = 43.524
+spot_attenuation = 0.51
+spot_angle = 74.98
+spot_angle_attenuation = 1.9999964
+
+[node name="door" parent="." unique_id=1371080145 instance=ExtResource("2_yaquv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0567968, 0, -0.16034985)
+move_to = "inspection_booth"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1359173249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8857946, 4.925347, 5.081608)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_2yfux")
