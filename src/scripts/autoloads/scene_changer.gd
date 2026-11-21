@@ -29,8 +29,8 @@ func start_load() -> void:
 	var state = ResourceLoader.load_threaded_request(scene_path, "", use_sub_thread)
 	if state == OK:
 		set_process(true)
-	
-func _process(_delta) -> void:
+	  
+func _process(_delta: float) -> void:
 	var load_status = ResourceLoader.load_threaded_get_status(scene_path, progress)
 	progress_changed.emit(progress[0])
 	match load_status:

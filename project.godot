@@ -23,6 +23,10 @@ Registry="*uid://bwobdfaseiry3"
 SceneChanger="*uid://b5iibn8hh0lk4"
 Util="*uid://dr2t418jktv0w"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [display]
 
 window/size/viewport_width=1248

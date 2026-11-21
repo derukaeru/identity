@@ -11,3 +11,6 @@ signal continue_player_movement
 
 signal open_pause
 signal close_pause
+
+signal stop_player
+signal move_player

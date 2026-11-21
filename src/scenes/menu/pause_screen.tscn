@@ -2,6 +2,14 @@
 
 [ext_resource type="Script" uid="uid://birr0kgvvxe76" path="res://src/scenes/menu/pause_screen.gd" id="1_s4fn5"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nmiht"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w6qdq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j37yw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mohlp"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_2yfux"]
 font_size = 64
 
@@ -41,19 +49,37 @@ size_flags_vertical = 3
 [node name="resume" type="Button" parent="VBoxContainer" unique_id=1698791073]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_pressed_color = Color(0.58, 0, 0.145, 1)
+theme_override_colors/font_hover_color = Color(0.9716428, 0.26034358, 0.35583884, 1)
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nmiht")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w6qdq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j37yw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mohlp")
 text = "resume"
 
 [node name="settings" type="Button" parent="VBoxContainer" unique_id=640017073]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_pressed_color = Color(0.58, 0, 0.145, 1)
+theme_override_colors/font_hover_color = Color(0.9716428, 0.26034358, 0.35583884, 1)
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nmiht")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w6qdq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j37yw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mohlp")
 text = "settings"
 
 [node name="exit" type="Button" parent="VBoxContainer" unique_id=1152742921]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_pressed_color = Color(0.58, 0, 0.145, 1)
+theme_override_colors/font_hover_color = Color(0.9716428, 0.26034358, 0.35583884, 1)
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nmiht")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w6qdq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j37yw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mohlp")
 text = "exit"
 
 [node name="paused" type="Label" parent="." unique_id=781683564]
