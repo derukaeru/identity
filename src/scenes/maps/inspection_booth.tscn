@@ -117,7 +117,7 @@ emission = Color(1, 1, 1, 1)
 material = SubResource("StandardMaterial3D_t4a08")
 size = Vector3(1.6742798, 0.4, 0.4)
 
-[node name="map" type="Node3D" unique_id=307662637]
+[node name="inspection_booth" type="Node3D" unique_id=307662637]
 script = ExtResource("1_vn5op")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1367736121]
@@ -218,5 +218,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9785745, 4.9650903, 0)
 mesh = SubResource("BoxMesh_2yfux")
 
 [node name="door" parent="." unique_id=500602545 instance=ExtResource("5_2jtgy")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.572986, 0, 2.1342854)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.572986, 0, 2.1156085)
 move_to = "house"

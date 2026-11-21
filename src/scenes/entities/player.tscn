@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5571amkocx4p"]
 
 [ext_resource type="Script" uid="uid://bp6njhornue3u" path="res://src/scenes/entities/player.gd" id="1_oidqf"]
+[ext_resource type="PackedScene" uid="uid://bbqyp71opgnoi" path="res://src/scenes/menu/ui.tscn" id="2_rds41"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2yfux"]
 height = 2.145
@@ -9,6 +10,8 @@ height = 2.145
 
 [node name="player" type="CharacterBody3D" unique_id=1778989208]
 script = ExtResource("1_oidqf")
+
+[node name="ui" parent="." unique_id=968265862 instance=ExtResource("2_rds41")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2003043057]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1386156, 0)

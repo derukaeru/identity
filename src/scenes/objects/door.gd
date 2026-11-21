@@ -8,5 +8,6 @@ func _on_input_event(_c: Node, event: InputEvent, _ep: Vector3, _n: Vector3, _si
 			move()
 
 func move() -> void:
-	if move_to.is_empty(): return
-	SceneChanger.change_scene(move_to)
+	if move_to.is_empty() or not Registry.UID.has(move_to): return
+	
+	SceneChanger.change_scene("main")

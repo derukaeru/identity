@@ -7,6 +7,6 @@
 [node name="main" type="Node3D" unique_id=163032758]
 script = ExtResource("1_hsw67")
 
-[node name="map" parent="." unique_id=307662637 instance=ExtResource("2_45uaa")]
+[node name="inspection_booth" parent="." unique_id=307662637 instance=ExtResource("2_45uaa")]
 
 [node name="player" parent="." unique_id=1778989208 instance=ExtResource("3_vw57g")]
