@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cbohr47pmqp04"]
+
+[ext_resource type="Script" uid="uid://dcj8ifun7niju" path="res://src/scenes/entities/visitor.gd" id="1_07wwt"]
+[ext_resource type="Script" uid="uid://dne60fecxdfcj" path="res://src/scripts/components/interactable_component.gd" id="2_ylbyu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2yfux"]
+radius = 0.6
+height = 3.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_la05k"]
+radius = 0.6
+height = 3.0
+
+[node name="visitor" type="PathFollow3D" unique_id=2087239300]
+script = ExtResource("1_07wwt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=384027435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4766984, 0)
+mesh = SubResource("CapsuleMesh_2yfux")
+
+[node name="InteractableComponent" type="Area3D" parent="." unique_id=1899540018]
+script = ExtResource("2_ylbyu")
+metadata/_custom_type_script = "uid://dne60fecxdfcj"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent" unique_id=1325845778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4738758, 0)
+shape = SubResource("CapsuleShape3D_la05k")

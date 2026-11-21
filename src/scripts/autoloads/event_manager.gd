@@ -14,3 +14,5 @@ signal close_pause
 
 signal stop_player
 signal move_player
+
+signal move_visitor(visitor: Visitor)

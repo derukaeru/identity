@@ -9,4 +9,6 @@ var UID: Dictionary = {
 	
 	"house": "uid://b40uoa6c677ew",
 	"inspection_booth": "uid://b12gw2hen6oqb",
+	
+	"visitor": "uid://cbohr47pmqp04",
 }
