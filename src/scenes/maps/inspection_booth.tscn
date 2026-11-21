@@ -251,3 +251,8 @@ curve = SubResource("Curve3D_gaait")
 
 [node name="visitor_spawn" type="Node3D" parent="." unique_id=1280892822]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.313127, 0, -7.6075583)
+
+[node name="objects" type="Node3D" parent="." unique_id=1276245763]
+
+[node name="items" type="Node3D" parent="." unique_id=1048745679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3034914, 1.2847733, -5.8005905)

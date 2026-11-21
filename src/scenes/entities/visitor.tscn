@@ -12,6 +12,8 @@ radius = 0.6
 height = 3.0
 
 [node name="visitor" type="PathFollow3D" unique_id=2087239300]
+use_model_front = true
+loop = false
 script = ExtResource("1_07wwt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=384027435]
@@ -25,3 +27,5 @@ metadata/_custom_type_script = "uid://dne60fecxdfcj"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent" unique_id=1325845778]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4738758, 0)
 shape = SubResource("CapsuleShape3D_la05k")
+
+[connection signal="interacted" from="InteractableComponent" to="." method="_on_interactable_component_interacted"]
