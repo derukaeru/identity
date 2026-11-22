@@ -18,3 +18,5 @@ signal move_player
 signal move_visitor(visitor: Visitor)
 signal add_object(object: Item)
 signal add_item(item: Item)
+
+signal inspect_item(item: Item)

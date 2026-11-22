@@ -66,11 +66,12 @@ func _unhandled_input(event: InputEvent) -> void:
 func _interact() -> void:
 	var collider := raycast.get_collider()
 	if collider is Item:
-		if item_held:
-			item_held.drop()
-		
-		item_held = collider
-		item_held.hide()
+		EventManager.inspect_item.emit(collider)
+		#if item_held:
+			#item_held.drop()
+		#
+		#item_held = collider
+		#item_held.hide()
 	elif collider is InteractableComponent:
 		collider.interact()
 		return

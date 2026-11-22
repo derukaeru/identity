@@ -4,45 +4,28 @@
 [ext_resource type="PackedScene" uid="uid://7jemke30bxqq" path="res://src/scenes/menu/pause_screen.tscn" id="2_komq3"]
 [ext_resource type="Shader" uid="uid://d0rjqt1goxskn" path="res://src/assets/shaders/fear.gdshader" id="3_atyx7"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_2yfux"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_atyx7"]
+font_size = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_atyx7"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2yfux"]
 shader = ExtResource("3_atyx7")
-shader_parameter/aberration_strength = 2.000000095
+shader_parameter/aberration_strength = 0.4450000211375
 shader_parameter/blur_strength = 2.0
 shader_parameter/noise_strength = 0.00400000019
 shader_parameter/vignette_strength = 0.78
 shader_parameter/scanline_strength = 0.016
 shader_parameter/distortion_strength = 0.1
-shader_parameter/ghost_strength = 0.12
+shader_parameter/ghost_strength = 0.0
 shader_parameter/flicker_strength = 0.005
 
-[sub_resource type="LabelSettings" id="LabelSettings_2yfux"]
-font_size = 24
-
 [node name="ui" type="CanvasLayer" unique_id=968265862]
+process_mode = 1
 script = ExtResource("1_wpnud")
-
-[node name="shader" type="ColorRect" parent="." unique_id=609308162]
-material = SubResource("ShaderMaterial_2yfux")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="crosshair" type="ColorRect" parent="." unique_id=1290693385]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.25
-offset_bottom = 4.25
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
 
 [node name="tooltip" type="Label" parent="." unique_id=37055158]
 visible = false
@@ -60,6 +43,120 @@ grow_vertical = 2
 text = "interact"
 label_settings = SubResource("LabelSettings_2yfux")
 
-[node name="pause_screen" parent="." unique_id=2145161773 instance=ExtResource("2_komq3")]
-process_mode = 3
+[node name="dialogue_panel" type="Panel" parent="." unique_id=1293256950]
 visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -155.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="dialogue" type="Label" parent="dialogue_panel" unique_id=838928961]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_atyx7")
+autowrap_mode = 3
+clip_text = true
+
+[node name="crosshair" type="ColorRect" parent="." unique_id=1290693385]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.25
+offset_bottom = 4.25
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="inspection" type="Control" parent="." unique_id=728602355]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="ColorRect" parent="inspection" unique_id=384218160]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5647059)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="inspection" unique_id=92272542]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="inspection/SubViewportContainer" unique_id=188633522]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1248, 808)
+render_target_update_mode = 0
+
+[node name="Node3D" type="Node3D" parent="inspection/SubViewportContainer/SubViewport" unique_id=803204828]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="inspection/SubViewportContainer/SubViewport/Node3D" unique_id=1171700520]
+transform = Transform3D(-0.9449985, -0.3266646, -0.016374998, 0.12630136, -0.4106394, 0.9030079, -0.3017049, 0.8512729, 0.4293118, -0.4830247, 1.4339396, 1.1009383)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="inspection/SubViewportContainer/SubViewport/Node3D" unique_id=1746110119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8618383)
+
+[node name="ObjectPivot" type="Node3D" parent="inspection/SubViewportContainer/SubViewport/Node3D" unique_id=662189847]
+
+[node name="exit" type="Button" parent="inspection" unique_id=1461484038]
+layout_mode = 0
+offset_left = 1053.0
+offset_top = 28.0
+offset_right = 1211.0
+offset_bottom = 85.0
+theme_override_colors/font_pressed_color = Color(0.7607843, 0.1764706, 0.1764706, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.39900002, 0.39900002, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_atyx7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_atyx7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_atyx7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_atyx7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_atyx7")
+text = "exit"
+
+[node name="pause_screen" parent="." unique_id=2145161773 instance=ExtResource("2_komq3")]
+process_mode = 2
+visible = false
+
+[node name="shader" type="ColorRect" parent="." unique_id=609308162]
+material = SubResource("ShaderMaterial_2yfux")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="inspection/exit" to="." method="_on_exit_pressed"]

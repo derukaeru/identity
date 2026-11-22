@@ -6,7 +6,7 @@
 size = Vector3(0.21940422, 0.016326904, 0.40356445)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2yfux"]
-size = Vector3(0.21, 0.02, 0.4)
+size = Vector3(0.4, 0.02, 0.6)
 
 [node name="id" type="Area3D" unique_id=1100074241]
 script = ExtResource("1_xbf5n")
@@ -18,4 +18,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0015153885, 0.0042983443, -
 shape = SubResource("BoxShape3D_2yfux")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=477121033]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("BoxMesh_2yfux")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

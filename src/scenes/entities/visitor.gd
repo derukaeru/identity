@@ -22,7 +22,7 @@ enum PERSONALITY {
 var gave_id: bool = false
 var accepted: bool = false
 
-@export var speed: float = 4.0
+@export var speed: float = 2.0
 
 func _ready() -> void:
 	pass
