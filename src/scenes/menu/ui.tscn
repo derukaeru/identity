@@ -10,6 +10,9 @@ font_size = 24
 [sub_resource type="LabelSettings" id="LabelSettings_atyx7"]
 font_size = 32
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yfux"]
+bg_color = Color(0, 0, 0, 0.1882353)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_atyx7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2yfux"]
@@ -71,6 +74,32 @@ grow_vertical = 2
 label_settings = SubResource("LabelSettings_atyx7")
 autowrap_mode = 3
 clip_text = true
+
+[node name="questions" type="VBoxContainer" parent="dialogue_panel" unique_id=148124826]
+visible = false
+layout_mode = 0
+offset_left = 675.0
+offset_top = -172.0
+offset_right = 1224.0
+offset_bottom = -13.0
+
+[node name="option_1" type="Button" parent="dialogue_panel/questions" unique_id=1716677889]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_2yfux")
+
+[node name="option_2" type="Button" parent="dialogue_panel/questions" unique_id=898515675]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_2yfux")
+
+[node name="option_3" type="Button" parent="dialogue_panel/questions" unique_id=432196427]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_2yfux")
 
 [node name="crosshair" type="ColorRect" parent="." unique_id=1290693385]
 anchors_preset = 8

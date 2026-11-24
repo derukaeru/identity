@@ -20,3 +20,6 @@ signal add_object(object: Item)
 signal add_item(item: Item)
 
 signal inspect_item(item: Item)
+
+signal deny_visitor
+signal approve_visitor

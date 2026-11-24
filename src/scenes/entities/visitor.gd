@@ -25,7 +25,8 @@ var accepted: bool = false
 @export var speed: float = 2.0
 
 func _ready() -> void:
-	pass
+	EventManager.approve_visitor.connect(approved)
+	EventManager.deny_visitor.connect(denied)
 
 func _process(delta: float) -> void:
 	match state:
@@ -36,6 +37,10 @@ func _process(delta: float) -> void:
 			progress += speed * delta
 			
 			if has_arrived():
+				if approved:
+					pass
+				else:
+					pass
 				queue_free()
 		STATES.ENTERING:
 			progress += speed * delta
@@ -49,12 +54,21 @@ func _process(delta: float) -> void:
 			gave_id = true
 			give_id()
 
-func inspect(approved: bool = false) -> void:
-	pass
+func approved() -> void:
+	if state != STATES.WAITING: return
+	state = STATES.LEAVING
+	accepted = true
+	EventManager.move_visitor.emit(self)
+
+func denied() -> void:
+	if state != STATES.WAITING: return
+	state = STATES.LEAVING
+	accepted = false
+	EventManager.move_visitor.emit(self)
 
 func _on_interactable_component_interacted() -> void:
-	state = STATES.LEAVING
-	EventManager.move_visitor.emit(self)
+	# interrogate
+	pass
 
 func has_arrived() -> bool:
 	if progress_ratio < 1.0: return false
@@ -63,3 +77,4 @@ func has_arrived() -> bool:
 func give_id() -> void:
 	var id: Item = load(Registry.UID["id"]).instantiate()
 	EventManager.add_item.emit(id)
+	gave_id = true

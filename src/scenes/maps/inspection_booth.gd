@@ -9,6 +9,9 @@ extends Node3D
 @onready var objects: Node3D = $objects
 @onready var items: Node3D = $items
 
+@onready var deny_button_animation: AnimationPlayer = $objects/deny/DenyButtonAnimation
+@onready var approve_button_animation: AnimationPlayer = $objects/approve/ApproveButtonAnimation
+
 func _ready() -> void:
 	EventManager.move_visitor.connect(move_visitor)
 	EventManager.add_item.connect(add_item)
@@ -36,3 +39,11 @@ func spawn_visitor() -> void:
 
 func add_item(item: Item) -> void:
 	items.add_child(item)
+
+func _on_deny_interacted() -> void:
+	EventManager.deny_visitor.emit()
+	deny_button_animation.play("click")
+
+func _on_approve_interacted() -> void:
+	EventManager.approve_visitor.emit()
+	approve_button_animation.play("click")

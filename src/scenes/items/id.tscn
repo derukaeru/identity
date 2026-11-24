@@ -11,6 +11,7 @@ size = Vector3(0.4, 0.02, 0.6)
 [node name="id" type="Area3D" unique_id=1100074241]
 script = ExtResource("1_xbf5n")
 item_name = "id"
+item_scale = 2.0
 metadata/_custom_type_script = "uid://cb3wx8q3miqy4"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1991513318]

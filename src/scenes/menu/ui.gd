@@ -9,6 +9,8 @@ extends CanvasLayer
 @onready var inspection_ui: Control = $inspection
 @onready var object_pivot: Node3D = $inspection/SubViewportContainer/SubViewport/Node3D/ObjectPivot
 
+@onready var questions_container: VBoxContainer = $dialogue_panel/questions
+
 @export var rotation_speed: float = 0.002
 var dragging: bool = false
 
@@ -65,7 +67,7 @@ func type_dialogue(dialog: String) -> void:
 		
 	current_dialogue = dialog
 	show_dialogue()
-
+ 
 func clear_dialogue() -> void:
 	dialogue.text = ""
 	current_dialogue = ""
@@ -84,18 +86,25 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and dragging:
 		object_pivot.rotate_y(event.relative.x * rotation_speed)
 		object_pivot.rotate_x(event.relative.y * rotation_speed)
-
+		
 func open_inspection(item: Item = null) -> void:
 	inspection_ui.show()
 	Util.mouse_visible()
 	
 	object_pivot.rotation = Vector3.ZERO
+	object_pivot.scale = Vector3.ONE
 	
 	for c in object_pivot.get_children():
 		object_pivot.remove_child(c)
 		
 	object_pivot.add_child(item.duplicate())
+	object_pivot.scale = object_pivot.scale * item.item_scale
 
 func _on_exit_pressed() -> void:
 	inspection_ui.hide()
 	Util.mouse_captured()
+
+func set_questions(questions: Array[String]) -> void:
+	var qboxes: Array[Node] = questions_container.get_children()
+	for i in range(questions.size()):
+		qboxes[i].text = questions[i]

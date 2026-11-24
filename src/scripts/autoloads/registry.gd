@@ -11,5 +11,5 @@ var UID: Dictionary = {
 	"inspection_booth": "uid://b12gw2hen6oqb",
 	
 	"visitor": "uid://cbohr47pmqp04",
-	"id": "uid://b48tkcuhiqvuf"
+	"id": "uid://b48tkcuhiqvuf",
 }

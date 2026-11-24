@@ -8,7 +8,7 @@ func _ready() -> void:
 	await animation.animation_finished
 	loading_screen_ready.emit()
 
-func _on_progress_changed(_value) -> void:
+func _on_progress_changed(_value: float) -> void:
 	pass
 
 func _on_loading_finished() -> void:
