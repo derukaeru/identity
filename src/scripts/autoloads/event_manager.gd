@@ -20,6 +20,12 @@ signal add_object(object: Item)
 signal add_item(item: Item)
 
 signal inspect_item(item: Item)
+signal ask_question(index: int)
 
 signal deny_visitor
 signal approve_visitor
+
+signal dialogue(text: String)
+signal dialogue_finished
+signal close_dialogue
+signal open_dialogue

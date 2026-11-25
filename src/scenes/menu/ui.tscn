@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbqyp71opgnoi"]
 
 [ext_resource type="Script" uid="uid://dfkh0snfvjkql" path="res://src/scenes/menu/ui.gd" id="1_wpnud"]
+[ext_resource type="Texture2D" uid="uid://cg15twcwiopcn" path="res://src/assets/sprites/textures/continue.png" id="2_e0xvt"]
 [ext_resource type="PackedScene" uid="uid://7jemke30bxqq" path="res://src/scenes/menu/pause_screen.tscn" id="2_komq3"]
 [ext_resource type="Shader" uid="uid://d0rjqt1goxskn" path="res://src/assets/shaders/fear.gdshader" id="3_atyx7"]
 
@@ -46,20 +47,29 @@ grow_vertical = 2
 text = "interact"
 label_settings = SubResource("LabelSettings_2yfux")
 
-[node name="dialogue_panel" type="Panel" parent="." unique_id=1293256950]
+[node name="dialogue_container" type="Control" parent="." unique_id=1296567097]
 visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="dialogue_panel" type="Panel" parent="dialogue_container" unique_id=1293256950]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 6.0
-offset_top = -155.0
+offset_top = -156.0
 offset_right = -5.0
-offset_bottom = -5.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="dialogue" type="Label" parent="dialogue_panel" unique_id=838928961]
+[node name="dialogue" type="Label" parent="dialogue_container/dialogue_panel" unique_id=838928961]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -75,7 +85,7 @@ label_settings = SubResource("LabelSettings_atyx7")
 autowrap_mode = 3
 clip_text = true
 
-[node name="questions" type="VBoxContainer" parent="dialogue_panel" unique_id=148124826]
+[node name="questions" type="VBoxContainer" parent="dialogue_container/dialogue_panel" unique_id=148124826]
 visible = false
 layout_mode = 0
 offset_left = 675.0
@@ -83,23 +93,32 @@ offset_top = -172.0
 offset_right = 1224.0
 offset_bottom = -13.0
 
-[node name="option_1" type="Button" parent="dialogue_panel/questions" unique_id=1716677889]
+[node name="option_1" type="Button" parent="dialogue_container/dialogue_panel/questions" unique_id=1716677889]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_2yfux")
 
-[node name="option_2" type="Button" parent="dialogue_panel/questions" unique_id=898515675]
+[node name="option_2" type="Button" parent="dialogue_container/dialogue_panel/questions" unique_id=898515675]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_2yfux")
 
-[node name="option_3" type="Button" parent="dialogue_panel/questions" unique_id=432196427]
+[node name="option_3" type="Button" parent="dialogue_container/dialogue_panel/questions" unique_id=432196427]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_2yfux")
+
+[node name="continue" type="TextureRect" parent="dialogue_container/dialogue_panel" unique_id=927743436]
+visible = false
+layout_mode = 0
+offset_left = 1182.0
+offset_top = 94.0
+offset_right = 1222.0
+offset_bottom = 134.0
+texture = ExtResource("2_e0xvt")
 
 [node name="crosshair" type="ColorRect" parent="." unique_id=1290693385]
 anchors_preset = 8
@@ -188,4 +207,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[connection signal="gui_input" from="dialogue_container/dialogue_panel" to="." method="dialogue_panel_clicked"]
+[connection signal="pressed" from="dialogue_container/dialogue_panel/questions/option_1" to="." method="ask_question" binds= [0]]
+[connection signal="pressed" from="dialogue_container/dialogue_panel/questions/option_2" to="." method="ask_question" binds= [1]]
+[connection signal="pressed" from="dialogue_container/dialogue_panel/questions/option_3" to="." method="ask_question" binds= [2]]
 [connection signal="pressed" from="inspection/exit" to="." method="_on_exit_pressed"]

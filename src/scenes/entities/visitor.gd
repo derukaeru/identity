@@ -19,6 +19,8 @@ enum PERSONALITY {
 @export var state: STATES = STATES.IDLE
 @export var personality: PERSONALITY = PERSONALITY.NEUTRAL
 
+@export var answers: Array[String] = []
+
 var gave_id: bool = false
 var accepted: bool = false
 
@@ -27,6 +29,7 @@ var accepted: bool = false
 func _ready() -> void:
 	EventManager.approve_visitor.connect(approved)
 	EventManager.deny_visitor.connect(denied)
+	EventManager.ask_question.connect(asked_question)
 
 func _process(delta: float) -> void:
 	match state:
@@ -67,8 +70,7 @@ func denied() -> void:
 	EventManager.move_visitor.emit(self)
 
 func _on_interactable_component_interacted() -> void:
-	# interrogate
-	pass
+	EventManager.dialogue.emit("Hello.")
 
 func has_arrived() -> bool:
 	if progress_ratio < 1.0: return false
@@ -78,3 +80,8 @@ func give_id() -> void:
 	var id: Item = load(Registry.UID["id"]).instantiate()
 	EventManager.add_item.emit(id)
 	gave_id = true
+
+func asked_question(index: int) -> void:
+	if index >= answers.size(): 
+		EventManager.dialogue.emit("...")
+	else: EventManager.dialogue.emit(answers[index])

@@ -11,14 +11,18 @@ var mouse_sensitivity: float = 0.001
 var can_move: bool = true
 
 var current_interactable: InteractableComponent = null
-
 var item_held: Item = null
+
+var in_dialogue: bool = false
 
 func _ready() -> void:
 	Util.mouse_captured()
 	
 	EventManager.stop_player_movement.connect(stop_movement)
 	EventManager.continue_player_movement.connect(continue_movement)
+
+	EventManager.open_dialogue.connect(open_dialogue)
+	EventManager.close_dialogue.connect(close_dialogue)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -64,6 +68,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.global_rotation.y -= event.relative.x * mouse_sensitivity
 
 func _interact() -> void:
+	if in_dialogue: return
+	
 	var collider := raycast.get_collider()
 	if collider is Item:
 		EventManager.inspect_item.emit(collider)
@@ -85,3 +91,11 @@ func stop_movement() -> void:
 
 func continue_movement() -> void:
 	can_move = true
+
+func close_dialogue() -> void:
+	in_dialogue = false
+	continue_movement()
+
+func open_dialogue() -> void:
+	in_dialogue = true
+	stop_movement()
