@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c3exg7k1p6mx4" path="res://src/scenes/objects/door.tscn" id="5_2jtgy"]
 [ext_resource type="Texture2D" uid="uid://cddk48f5f2d11" path="res://src/assets/sprites/textures/grass2.png" id="6_5x8ml"]
 [ext_resource type="Script" uid="uid://dne60fecxdfcj" path="res://src/scripts/components/interactable_component.gd" id="7_87sxx"]
+[ext_resource type="PackedScene" uid="uid://c17j3ukm1f6rj" path="res://src/scenes/objects/lever.tscn" id="8_1y3c6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61erh"]
 albedo_texture = ExtResource("2_vqcny")
@@ -31,7 +32,7 @@ size = Vector3(9.391846, 5.414612, 0.35729218)
 size = Vector3(0.38049316, 5.414612, 7.484569)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ifoc3"]
-size = Vector3(9.46994, 1.7827148, 1.1228027)
+size = Vector3(9.46994, 1.7827148, 1.4453125)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g802v"]
 albedo_texture = ExtResource("3_61erh")
@@ -281,7 +282,7 @@ shape = SubResource("BoxShape3D_vqcny")
 debug_color = Color(0, 0, 0, 1)
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="collisions" unique_id=1058998085]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3887444, 0.39135742, -4.4953756)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3887444, 0.39135742, -4.3341208)
 shape = SubResource("BoxShape3D_ifoc3")
 
 [node name="walls" type="Node3D" parent="." unique_id=1322943635]
@@ -370,6 +371,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.313127, 0, -7.6075583)
 [node name="deny" type="Area3D" parent="objects" unique_id=1168760912]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.045131616, 2.3062398, -5.9304304)
 script = ExtResource("7_87sxx")
+tooltip_text = "RMB to deny visitor"
 metadata/_custom_type_script = "uid://dne60fecxdfcj"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="objects/deny" unique_id=218847938]
@@ -384,6 +386,7 @@ libraries/ = SubResource("AnimationLibrary_1y3c6")
 [node name="approve" type="Area3D" parent="objects" unique_id=1419094690]
 transform = Transform3D(1, 0, 0, 0, 2.9802322e-08, -1, 0, 1, 2.9802322e-08, -0.040380195, 1.9578009, -5.9338)
 script = ExtResource("7_87sxx")
+tooltip_text = "RMB to approve visitor"
 metadata/_custom_type_script = "uid://dne60fecxdfcj"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="objects/approve" unique_id=1634563425]
@@ -395,8 +398,12 @@ mesh = SubResource("CylinderMesh_ifoc3")
 [node name="ApproveButtonAnimation" type="AnimationPlayer" parent="objects/approve" unique_id=1771874616]
 libraries/ = SubResource("AnimationLibrary_lmu62")
 
+[node name="lever" parent="objects" unique_id=809812811 instance=ExtResource("8_1y3c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.509021, 2.2688494, -5.9444294)
+
 [node name="items" type="Node3D" parent="." unique_id=1048745679]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3034914, 1.2847733, -5.8005905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7861822, 1.2847733, -5.524642)
 
 [connection signal="interacted" from="objects/deny" to="." method="_on_deny_interacted"]
 [connection signal="interacted" from="objects/approve" to="." method="_on_approve_interacted"]
+[connection signal="interacted" from="objects/lever" to="." method="_on_lever_interacted"]

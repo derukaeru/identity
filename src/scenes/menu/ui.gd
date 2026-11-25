@@ -13,14 +13,14 @@ extends CanvasLayer
 @onready var questions_container: VBoxContainer = $dialogue_container/dialogue_panel/questions
 @onready var continue_icon: TextureRect = $dialogue_container/dialogue_panel/continue
 
-@export var rotation_speed: float = 0.02
+@export var rotation_speed: float = 0.002
 var dragging: bool = false
 
 var is_typing: bool = false
 var skip_typing: bool = false
 
 var current_dialogue: String = ""
-var type_speed: float = 0.01
+var type_speed: float = 0.02
 
 var questions: Array[String] = [
 	"",

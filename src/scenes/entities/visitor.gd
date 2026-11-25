@@ -7,17 +7,8 @@ enum STATES {
 	LEAVING
 }
 
-enum PERSONALITY {
-	NEUTRAL,
-	CALM,
-	AGGRESSIVE,
-	NERVOUS,
-	CONFUSED,
-	EVASIVE
-}
-
 @export var state: STATES = STATES.IDLE
-@export var personality: PERSONALITY = PERSONALITY.NEUTRAL
+@export var personality: VisitorData.Personality = VisitorData.Personality.NEUTRAL
 
 @export var answers: Array[String] = []
 

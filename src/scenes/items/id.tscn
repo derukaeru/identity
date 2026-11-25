@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d17dqw1417q1d" path="res://src/scenes/items/id.gd" id="1_xbf5n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2yfux"]
-size = Vector3(0.21940422, 0.016326904, 0.40356445)
+size = Vector3(0.5993457, 0.016326904, 0.40356445)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2yfux"]
 size = Vector3(0.4, 0.02, 0.6)
@@ -15,7 +15,7 @@ item_scale = 2.0
 metadata/_custom_type_script = "uid://cb3wx8q3miqy4"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1991513318]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0015153885, 0.0042983443, -0.0025634766)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00018382072, 0.0042983443, -0.0025634766)
 shape = SubResource("BoxShape3D_2yfux")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=477121033]

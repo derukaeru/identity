@@ -47,3 +47,7 @@ func _on_deny_interacted() -> void:
 func _on_approve_interacted() -> void:
 	EventManager.approve_visitor.emit()
 	approve_button_animation.play("click")
+	
+func _on_lever_interacted() -> void:
+	# inspect symptoms
+	pass
