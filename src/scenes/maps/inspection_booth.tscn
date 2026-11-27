@@ -67,7 +67,7 @@ uv1_scale = Vector3(4, 0.461, 0.946)
 texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_la05k"]
-size = Vector3(9.34288, 1.5, 1.7826355)
+size = Vector3(9.34288, 1.5, 1.9894623)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vwel7"]
 albedo_texture = ExtResource("3_61erh")
@@ -307,7 +307,7 @@ cast_shadow = 2
 mesh = SubResource("BoxMesh_cx2a6")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="walls" unique_id=1318046428]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3966947, 0.50057507, -4.504573)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3966947, 0.50057507, -4.6079865)
 material_override = SubResource("StandardMaterial3D_m521s")
 cast_shadow = 2
 mesh = SubResource("BoxMesh_la05k")
@@ -400,6 +400,9 @@ libraries/ = SubResource("AnimationLibrary_lmu62")
 
 [node name="lever" parent="objects" unique_id=809812811 instance=ExtResource("8_1y3c6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.509021, 2.2688494, -5.9444294)
+
+[node name="inspection_location" type="Marker3D" parent="objects" unique_id=301145959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9436998, 2.2591372, -5.2549815)
 
 [node name="items" type="Node3D" parent="." unique_id=1048745679]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7861822, 1.2847733, -5.524642)

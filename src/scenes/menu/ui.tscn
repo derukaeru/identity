@@ -134,6 +134,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="visitor_inspection" type="Control" parent="." unique_id=1740778007]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="inspection" type="Control" parent="." unique_id=728602355]
 visible = false
 layout_mode = 3

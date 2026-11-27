@@ -8,8 +8,9 @@ enum STATES {
 }
 
 @export var state: STATES = STATES.IDLE
-@export var personality: VisitorData.Personality = VisitorData.Personality.NEUTRAL
+@export var personality: VisitorData.Personalities = VisitorData.Personalities.NEUTRAL
 
+@export var data: VisitorData
 @export var answers: Array[String] = []
 
 var gave_id: bool = false
@@ -21,6 +22,9 @@ func _ready() -> void:
 	EventManager.approve_visitor.connect(approved)
 	EventManager.deny_visitor.connect(denied)
 	EventManager.ask_question.connect(asked_question)
+	
+	if data:
+		answers = data.answers
 
 func _process(delta: float) -> void:
 	match state:
@@ -32,15 +36,16 @@ func _process(delta: float) -> void:
 			
 			if has_arrived():
 				if approved:
-					pass
+					EventManager.visitor_entered.emit()
 				else:
-					pass
+					EventManager.visitor_left.emit()
 				queue_free()
 		STATES.ENTERING:
 			progress += speed * delta
 			
 			if has_arrived():
 				state = STATES.WAITING
+				EventManager.visitor_waiting.emit()
 				EventManager.move_visitor.emit(self)
 		STATES.WAITING:
 			if gave_id: return

@@ -12,6 +12,8 @@ extends Node3D
 @onready var deny_button_animation: AnimationPlayer = $objects/deny/DenyButtonAnimation
 @onready var approve_button_animation: AnimationPlayer = $objects/approve/ApproveButtonAnimation
 
+@onready var inspection_marker: Marker3D = $objects/inspection_location
+
 func _ready() -> void:
 	EventManager.move_visitor.connect(move_visitor)
 	EventManager.add_item.connect(add_item)
@@ -49,5 +51,4 @@ func _on_approve_interacted() -> void:
 	approve_button_animation.play("click")
 	
 func _on_lever_interacted() -> void:
-	# inspect symptoms
-	pass
+	EventManager.inspect_visitor.emit(inspection_marker)

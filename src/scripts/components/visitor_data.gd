@@ -5,13 +5,24 @@ enum Sex {
 	FEMALE
 }
 
-enum Personality {
+enum Personalities {
 	NEUTRAL,
 	CALM,
 	AGGRESSIVE,
 	NERVOUS,
 	CONFUSED,
 	EVASIVE
+}
+
+enum Places_Of_Origin {
+	Kantric
+}
+
+enum Blood_Types {
+	O,
+	A,
+	B,
+	AB
 }
 
 @export var first_name: String = "John"
@@ -22,3 +33,7 @@ enum Personality {
 
 @export var answers: Array[String] = ["", "", ""]
 @export var infected: bool = false
+
+@export var symptoms: Array[SymptomData]
+@export var blood_type: Blood_Types
+@export var place_of_origin: Places_Of_Origin

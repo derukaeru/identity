@@ -13,6 +13,8 @@ extends CanvasLayer
 @onready var questions_container: VBoxContainer = $dialogue_container/dialogue_panel/questions
 @onready var continue_icon: TextureRect = $dialogue_container/dialogue_panel/continue
 
+@onready var visitor_inspection: Control = $visitor_inspection
+
 @export var rotation_speed: float = 0.002
 var dragging: bool = false
 
@@ -71,6 +73,9 @@ func type_dialogue(dialog: String) -> void:
 	
 	current_dialogue = dialog
 	show_dialogue()
+	
+	is_typing = true
+	skip_typing = false
 	
 	for i in range(dialog.length()):
 		if skip_typing:
@@ -149,3 +154,9 @@ func dialogue_panel_clicked(event: InputEvent) -> void:
 			skip_typing = true
 		else:
 			hide_dialogue()
+
+func open_visitor_inspection() -> void:
+	visitor_inspection.show()
+
+func hide_visitor_inspection() -> void:
+	visitor_inspection.hide()

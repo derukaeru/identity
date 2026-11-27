@@ -29,3 +29,10 @@ signal dialogue(text: String)
 signal dialogue_finished
 signal close_dialogue
 signal open_dialogue
+
+signal inspect_visitor(marker: Marker3D)
+
+signal visitor_entered
+signal visitor_left
+signal visitor_waiting
+signal spawn_visitor
