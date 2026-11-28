@@ -14,6 +14,7 @@ extends CanvasLayer
 @onready var continue_icon: TextureRect = $dialogue_container/dialogue_panel/continue
 
 @onready var visitor_inspection: Control = $visitor_inspection
+@onready var time_label: Label = $time
 
 @export var rotation_speed: float = 0.002
 var dragging: bool = false
@@ -54,6 +55,8 @@ func _process(_delta: float) -> void:
 			get_tree().paused = true
 			pause_screen.open()
 			Util.mouse_visible()
+	
+	time_label.text = "time: " + str(int(GameManager.time)) + " / " + str(int(GameManager.max_time))
 
 func show_tooltip(interactable: InteractableComponent) -> void:
 	tooltip.text = interactable.tooltip_text
@@ -160,3 +163,4 @@ func open_visitor_inspection() -> void:
 
 func hide_visitor_inspection() -> void:
 	visitor_inspection.hide()
+	EventManager.inspect_visitor.emit()

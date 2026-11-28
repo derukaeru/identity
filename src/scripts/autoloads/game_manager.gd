@@ -3,7 +3,11 @@ extends Node
 var game_running: bool = true
 var current_map: String = "inspection_booth"
 
+var day_running: bool = true
 var has_visitor: bool = false
+
+var max_time: float = 1600.0 # seconds
+var time: float = 0.0
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

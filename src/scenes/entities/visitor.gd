@@ -35,9 +35,13 @@ func _process(delta: float) -> void:
 			progress += speed * delta
 			
 			if has_arrived():
+				print("arrived")
+				
 				if approved:
+					print("approved")
 					EventManager.visitor_entered.emit()
 				else:
+					print("left")
 					EventManager.visitor_left.emit()
 				queue_free()
 		STATES.ENTERING:
@@ -69,8 +73,8 @@ func _on_interactable_component_interacted() -> void:
 	EventManager.dialogue.emit("Hello.")
 
 func has_arrived() -> bool:
-	if progress_ratio < 1.0: return false
-	return true
+	if progress_ratio >= 1.0: return true
+	return false
 
 func give_id() -> void:
 	var id: Item = load(Registry.UID["id"]).instantiate()

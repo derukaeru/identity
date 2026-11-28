@@ -14,7 +14,12 @@ font_size = 32
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yfux"]
 bg_color = Color(0, 0, 0, 0.1882353)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0xvt"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_atyx7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t4a08"]
+font_size = 40
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2yfux"]
 shader = ExtResource("3_atyx7")
@@ -135,10 +140,32 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="visitor_inspection" type="Control" parent="." unique_id=1740778007]
+visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="exit" type="Button" parent="visitor_inspection" unique_id=1549861474]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -157.0
+offset_top = 18.0
+offset_right = -20.0
+offset_bottom = 96.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e0xvt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e0xvt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e0xvt")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_e0xvt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e0xvt")
+text = "exit"
 
 [node name="inspection" type="Control" parent="." unique_id=728602355]
 visible = false
@@ -200,6 +227,14 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_atyx7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_atyx7")
 text = "exit"
 
+[node name="time" type="Label" parent="." unique_id=1575698591]
+offset_left = 31.0
+offset_top = 27.0
+offset_right = 313.0
+offset_bottom = 117.0
+text = "time: "
+label_settings = SubResource("LabelSettings_t4a08")
+
 [node name="pause_screen" parent="." unique_id=2145161773 instance=ExtResource("2_komq3")]
 process_mode = 2
 visible = false
@@ -217,4 +252,5 @@ mouse_filter = 2
 [connection signal="pressed" from="dialogue_container/dialogue_panel/questions/option_1" to="." method="ask_question" binds= [0]]
 [connection signal="pressed" from="dialogue_container/dialogue_panel/questions/option_2" to="." method="ask_question" binds= [1]]
 [connection signal="pressed" from="dialogue_container/dialogue_panel/questions/option_3" to="." method="ask_question" binds= [2]]
+[connection signal="pressed" from="visitor_inspection/exit" to="." method="hide_visitor_inspection"]
 [connection signal="pressed" from="inspection/exit" to="." method="_on_exit_pressed"]

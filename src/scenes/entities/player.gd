@@ -33,7 +33,6 @@ func _ready() -> void:
 	EventManager.close_dialogue.connect(close_dialogue)
 	
 	EventManager.inspect_visitor.connect(toggle_inspection)
-	
 	default_cam_transform = camera.global_transform
 
 func _physics_process(delta: float) -> void:
@@ -115,12 +114,16 @@ func open_dialogue() -> void:
 	can_look = false
 	stop_movement()
 
-func toggle_inspection(marker: Marker3D) -> void:
+func toggle_inspection(marker: Marker3D = null) -> void:
+	if not GameManager.has_visitor: return
+	
 	if camera_tween and camera_tween.is_running():
 		camera_tween.kill()
 	
-	inspection_position = marker
+	if marker:
+		inspection_position = marker
 	inspecting = !inspecting
+	
 	var target_transform: Transform3D
 	if inspecting:
 		target_transform = inspection_position.global_transform

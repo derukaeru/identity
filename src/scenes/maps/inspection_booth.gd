@@ -17,7 +17,18 @@ extends Node3D
 func _ready() -> void:
 	EventManager.move_visitor.connect(move_visitor)
 	EventManager.add_item.connect(add_item)
+	
+	EventManager.visitor_left.connect(visitor_left)
+	EventManager.visitor_entered.connect(visitor_entered)
+	
 	spawn_visitor()
+
+func _process(delta: float) -> void:
+	if GameManager.day_running:
+		GameManager.time += delta
+		
+		if GameManager.time >= GameManager.max_time:
+			GameManager.day_running = false
 
 func move_visitor(visitor: Visitor) -> void:
 	var state: Visitor.STATES = visitor.state
@@ -52,3 +63,11 @@ func _on_approve_interacted() -> void:
 	
 func _on_lever_interacted() -> void:
 	EventManager.inspect_visitor.emit(inspection_marker)
+
+func visitor_left() -> void:
+	if not GameManager.day_running: return
+	spawn_visitor()
+
+func visitor_entered() -> void:
+	if not GameManager.day_running: return
+	spawn_visitor()
